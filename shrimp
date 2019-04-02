@@ -1,0 +1,29 @@
+#!/bin/bash
+function create {
+    echo "======== create ========"
+    local SHRIMP_PATH=$(cd $(dirname $0); pwd)
+    local PROJECT_NAME=${1} 
+    mkdir ${PROJECT_NAME}
+    cp ${SHRIMP_PATH}/package.txt ./${PROJECT_NAME}
+    cp ${SHRIMP_PATH}/@import.sh ./${PROJECT_NAME}
+    cp ${SHRIMP_PATH}/App.sh ./${PROJECT_NAME}/${PROJECT_NAME}.sh
+    mkdir ${PROJECT_NAME}/packages
+}
+function install {
+    echo "======== install ========"
+    local PACKAGE_NAME=${1} 
+    local PACKAGE_URL=${2} 
+    echo "${PACKAGE_NAME}  ${PACKAGE_NAME}    ${PACKAGE_URL}" >> ./package.txt
+}
+function run {
+    echo "run"
+}
+
+COMMAND=$1
+shift
+
+case "${COMMAND}" in
+    "create" ) create $* ;;
+    "install" ) install $* ;;
+    "run" ) run $* ;;
+esac
