@@ -14,6 +14,7 @@ function install {
     local PACKAGE_NAME=${1} 
     local PACKAGE_URL=${2} 
     echo "${PACKAGE_NAME}  ${PACKAGE_NAME}    ${PACKAGE_URL}" >> ./package.txt
+    git clone ${PACKAGE_URL} ./packages/${PACKAGE_NAME}
 }
 function run {
     echo "run"
