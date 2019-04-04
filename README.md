@@ -5,7 +5,7 @@
 ## install
 
 ```
-git https://----
+git clone https://github.com/a9210/shrimp
 ```
 I recommend that add shrimp to $PATH.
 ```
@@ -31,7 +31,7 @@ shrimp install <package name> <repository url>
 ```
 
 ```
-shrimp install shrimp-util https://----.git
+shrimp install shrimp-util https://github.com/a9210/shrimp-utilgi
 ```
 
 ### import package
