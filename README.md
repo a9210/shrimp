@@ -31,13 +31,13 @@ shrimp install <package name> <repository url>
 ```
 
 ```
-shrimp install shrimp-util https://github.com/a9210/shrimp-utilgi
+shrimp install shrimp-util https://github.com/a9210/shrimp-util
 ```
 
 ### import package
 
 **myApp.sh**
-```
+```shell
 #!/bin/bash
 source @import.sh
 
