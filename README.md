@@ -1,6 +1,6 @@
 # SHRIMP : **SH**ellsc**RI**pt for **M**anaging shellscript **P**ackages.
 
-===
+---
 
 ## install
 
@@ -41,7 +41,7 @@ shrimp install shrimp-util https://github.com/a9210/shrimp-util
 #!/bin/bash
 source @import.sh
 
-Hash=`@import shrimp-util Hash.sh`
+Hash=$(@import shrimp-util Hash.sh)
 source ${Hash}
 
 put "key" "value"
@@ -57,7 +57,11 @@ value
 souseki
 ```
 
-### todo feature
-+ scope
-+ export
+### use with shrimp-oo
+
+Sourcing ```source ${Hash}``` is going to sometime produce naming conflict.
+I also lunch a project for object oriented shell scripting.
+Please check it out.
+
+https://github.com/a9210/shrimp-oo
 
