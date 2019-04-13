@@ -57,6 +57,17 @@ value
 souseki
 ```
 
+### call package
+
+Now we can use @call for running script file.
+@call will
+* make a sub shell.
+* change directory to package root.
+* run a script file.
+
+package will be always run in same directory.
+This is an advantage with using @call.
+
 ### use with shrimp-oo
 
 Sourcing ```source ${Hash}``` is going to sometime produce naming conflict.
