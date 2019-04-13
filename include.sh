@@ -11,10 +11,10 @@ function @call {
     local tmpDir=""
     local isNeedAppend=false
 
-    for dirToken in $(cat ${1} | sed "s/\// /g")
+    for dirToken in $(echo ${1} | sed "s/\// /g")
     do
         tmpDir="${tmpDir}${dirToken}/"
-        if [ isNeedAppend ]
+        if ${isNeedAppend}
         then
             isNeedAppend=false
             packageRootDir="${packageRootDir}${tmpDir}"
@@ -26,8 +26,10 @@ function @call {
         fi
     done
 
+    tmpDir=$(echo ${tmpDir} | sed "s/\/$//")
+    shift
     {
         cd ${packageRootDir}
-        $*
+        ./${tmpDir} $@
     }
 }
