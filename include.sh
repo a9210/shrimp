@@ -6,3 +6,28 @@ function @import {
     echo "./packages/${RESULT}/${TARGET_SH}"
     return 0
 }
+function @call {
+    local packageRootDir=""
+    local tmpDir=""
+    local isNeedAppend=false
+
+    for dirToken in $(cat ${1} | sed "s/\// /g")
+    do
+        tmpDir="${tmpDir}${dirToken}/"
+        if [ isNeedAppend ]
+        then
+            isNeedAppend=false
+            packageRootDir="${packageRootDir}${tmpDir}"
+            tmpDir=""
+        fi
+        if [ ${dirToken} = "packages" ]
+        then
+            isNeedAppend=true
+        fi
+    done
+
+    {
+        cd ${packageRootDir}
+        $*
+    }
+}

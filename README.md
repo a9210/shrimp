@@ -39,7 +39,7 @@ shrimp install shrimp-util https://github.com/a9210/shrimp-util
 **myApp.sh**
 ```shell
 #!/bin/bash
-source @import.sh
+source include.sh
 
 Hash=$(@import shrimp-util Hash.sh)
 source ${Hash}
