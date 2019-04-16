@@ -39,7 +39,7 @@ shrimp install shrimp-util https://github.com/a9210/shrimp-util
 **myApp.sh**
 ```shell
 #!/bin/bash
-source @import.sh
+source include.sh
 
 Hash=$(@import shrimp-util Hash.sh)
 source ${Hash}
@@ -56,6 +56,17 @@ myApp.sh will show ...
 value
 souseki
 ```
+
+### call package
+
+Now we can use @call for running script file.
+@call will
+* make a sub shell.
+* change directory to package root.
+* run a script file.
+
+package will be always run in same directory.
+This is an advantage with using @call.
 
 ### use with shrimp-oo
 
