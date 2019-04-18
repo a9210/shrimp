@@ -5,7 +5,7 @@ function create {
     local PROJECT_NAME=${1} 
     mkdir ${PROJECT_NAME}
     cp ${SHRIMP_PATH}/package.txt ./${PROJECT_NAME}
-    cp ${SHRIMP_PATH}/@import.sh ./${PROJECT_NAME}
+    cp ${SHRIMP_PATH}/include.sh ./${PROJECT_NAME}
     cp ${SHRIMP_PATH}/App.sh ./${PROJECT_NAME}/${PROJECT_NAME}.sh
     mkdir ${PROJECT_NAME}/packages
 }
