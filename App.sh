@@ -1,2 +1,2 @@
 #!/bin/bash
-source include.sh
+source @import.sh
