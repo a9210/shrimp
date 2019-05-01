@@ -27,11 +27,14 @@ cd myApp
 ### install package
 
 ```
-shrimp install <package name> <repository url>
+shrimp install <package name> <repository url> [branch]
 ```
 
 ```
 shrimp install shrimp-util https://github.com/a9210/shrimp-util
+```
+```
+shrimp install shrimp-util https://github.com/a9210/shrimp-util develop
 ```
 
 ### import package
