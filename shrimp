@@ -5,16 +5,23 @@ function create {
     local PROJECT_NAME=${1} 
     mkdir ${PROJECT_NAME}
     cp ${SHRIMP_PATH}/package.txt ./${PROJECT_NAME}
-    cp ${SHRIMP_PATH}/@import.sh ./${PROJECT_NAME}
+    cp ${SHRIMP_PATH}/include.sh ./${PROJECT_NAME}
     cp ${SHRIMP_PATH}/App.sh ./${PROJECT_NAME}/${PROJECT_NAME}.sh
     mkdir ${PROJECT_NAME}/packages
 }
 function install {
     echo "======== install ========"
     local PACKAGE_NAME=${1} 
-    local PACKAGE_URL=${2} 
-    echo "${PACKAGE_NAME}  ${PACKAGE_NAME}    ${PACKAGE_URL}" >> ./package.txt
-    git clone ${PACKAGE_URL} ./packages/${PACKAGE_NAME}
+    local PACKAGE_URL=${2}
+    local packageBranch=""
+    local branchOption=""
+    if [ ${#} -gt 2 ]
+    then
+        packageBranch=${3}
+        branchOption="-b ${packageBranch}"
+    fi
+    echo "${PACKAGE_NAME} ${PACKAGE_NAME} ${PACKAGE_URL} ${packageBranch}" >> ./package.txt
+    git clone ${branchOption} ${PACKAGE_URL} ./packages/${PACKAGE_NAME}
 }
 function run {
     echo "run"
